@@ -53,11 +53,12 @@
 	var/frozen = 0 //special condition for airlocks that are frozen shut, this will look weird on not normal airlocks because of a lack of special overlays.
 	autoclose = 1
 	explosion_block = 1
-	var/doorOpen = 'sound/machines/airlock.ogg'
-	var/doorClose = 'sound/machines/airlock.ogg'
+	var/doorOpen = 'sound/machines/AirlockOpen.ogg'
+	var/doorClose = 'sound/machines/AirlockClose.ogg'
 	var/doorDeni = 'sound/machines/DeniedBeep.ogg' // i'm thinkin' Deni's
 	var/boltUp = 'sound/machines/BoltsUp.ogg'
 	var/boltDown = 'sound/machines/BoltsDown.ogg'
+	var/noPower = 'sound/machines/DoorClick.ogg'
 
 /obj/machinery/door/airlock/command
 	name = "Airlock"
@@ -893,6 +894,7 @@ About the new airlock wires panel:
 		return 0
 	if(!forced)
 		if( !arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR) )
+			playsound(src.loc, noPower, 25, 1)
 			return 0
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(forced)
