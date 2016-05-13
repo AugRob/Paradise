@@ -295,6 +295,26 @@
 
 //////////// Masks ////////////
 
+/obj/item/clothing/mask/gas/fluff/mim_mask //ravenforge: Mim
+	name = "Mim's mask"
+	desc = "A customised mime mask crafted for Mim. It's reinforced with space kevlar."
+	icon = 'icons/obj/clothing/masks.dmi'
+	icon_state = "mim_mask"
+	item_state = "mim_mask"
+	armor = list(melee = 50, bullet = 40, laser = 30, energy = 30, bomb = 50, bio = 100, rad = 75)
+
+	var/mimified = 0
+
+	attack_self(mob/living/user)
+		if(user.r_hand == src && mimified == 0 || user.l_hand == src && mimified == 0)
+			var/mob/living/carbon/human/H = user
+			to_chat(user, "<span class='notice'>You gently run your hand over the mask, vowing silence and reclaiming the powers once again...</span>")
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/conjure/mime_wall(null))
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/mime/speak(null))
+			H.mind.miming = 1
+			mimified = 1
+		return 1
+
 //////////// Shoes ////////////
 
 //////////// Sets ////////////

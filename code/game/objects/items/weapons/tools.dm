@@ -22,8 +22,8 @@
 	icon_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
+	force = 20
+	throwforce = 10
 	w_class = 2.0
 	materials = list(MAT_METAL=150)
 	origin_tech = "materials=1;engineering=1"
@@ -40,7 +40,7 @@
 	icon_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
+	force = 15
 	w_class = 1.0
 	throwforce = 5.0
 	throw_speed = 3
@@ -101,9 +101,10 @@
 	icon_state = "cutters"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 6.0
+	force = 10
 	throw_speed = 3
 	throw_range = 7
+	throwforce = 5
 	w_class = 2.0
 	materials = list(MAT_METAL=80)
 	origin_tech = "materials=1;engineering=1"
@@ -216,7 +217,7 @@
 			return
 	//Welders left on now use up fuel, but lets not have them run out quite that fast
 		if(1)
-			force = 15
+			force = 20
 			damtype = "fire"
 			if(prob(5))
 				remove_fuel(1)
@@ -450,8 +451,8 @@
 	icon_state = "crowbar"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
+	force = 25.0
+	throwforce = 15
 	item_state = "crowbar"
 	w_class = 2.0
 	materials = list(MAT_METAL=50)
@@ -466,7 +467,7 @@
 /obj/item/weapon/crowbar/large
 	name = "crowbar"
 	desc = "It's a big crowbar. It doesn't fit in your pockets, because it's big."
-	force = 12
+	force = 35
 	w_class = 3
 	throw_speed = 3
 	throw_range = 3
