@@ -37,8 +37,8 @@ var/round_start_time = 0
 /datum/controller/gameticker/proc/pregame()
 	login_music = pick(\
 	'sound/music/La_mer.ogg',\
-	'sound/music/space.ogg',\
 	'sound/music/lobby_piano_1.ogg',\
+	'sound/music/synapsis-thesun.ogg',\
 	'sound/music/keytronic_homesick.ogg',)
 	do
 		pregame_timeleft = 180
