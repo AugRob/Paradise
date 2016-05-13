@@ -284,9 +284,8 @@
 
 		character.loc = C.loc
 
-		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [get_area(character)]")
+		minor_announcement.Announce("[character] has been downloaded to the empty core in \the [get_area(character)]", "New AI", new_sound = 'sound/AI/newAI.ogg')
 		ticker.mode.latespawn(character)
-		sound('sound/AI/newAI.ogg')
 
 		qdel(C)
 		qdel(src)
