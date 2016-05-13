@@ -286,6 +286,7 @@
 
 		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [get_area(character)]")
 		ticker.mode.latespawn(character)
+		sound('sound/AI/newAI.ogg')
 
 		qdel(C)
 		qdel(src)
