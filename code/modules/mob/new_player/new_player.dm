@@ -284,7 +284,9 @@
 
 		character.loc = C.loc
 
-		minor_announcement.Announce("[character] has been downloaded to the empty core in \the [get_area(character)]", "New AI", new_sound = 'sound/AI/newAI.ogg')
+		if (ticker.current_state == GAME_STATE_PLAYING)
+			minor_announcement.Announce("[character] has been downloaded to the empty core in \the [get_area(character)]", "New AI", new_sound = 'sound/AI/newAI.ogg')
+		
 		ticker.mode.latespawn(character)
 
 		qdel(C)
