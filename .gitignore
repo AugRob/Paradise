@@ -18,3 +18,7 @@ data/
 *.db
 stddef.dm
 .atom-build.json
+#don't wanna upload thuh musics
+/web/htdocs/media/files/*
+!/web/htdocs/media/files/index.html
+
