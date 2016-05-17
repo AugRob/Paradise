@@ -279,12 +279,12 @@
 	icon_state = "spearglass0"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
-	force = 20
+	force = 15
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_unwielded = 10
-	force_wielded = 28 // Was 13, Buffed - RR
-	throwforce = 30
+	force_unwielded = 15
+	force_wielded = 18 // Was 13, Buffed - RR
+	throwforce = 20
 	throw_speed = 3
 	no_spin_thrown = 1 // Thrown spears that spin look dumb. -Fox
 	flags = NOSHIELD
@@ -292,6 +292,17 @@
 
 /obj/item/weapon/twohanded/spear/update_icon()
 	icon_state = "spearglass[wielded]"
+	return
+	
+/obj/item/weapon/twohanded/spear/knife
+	icon_state = "spearknife0"
+	force = 20
+	force_unwielded = 20
+	force_wielded = 28
+	throwforce = 30
+	
+/obj/item/weapon/twohanded/spear/knife/update_icon()
+	icon_state = "spearknife[wielded]"
 	return
 
 /obj/item/weapon/twohanded/spear/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)

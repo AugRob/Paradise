@@ -181,29 +181,45 @@ obj/item/weapon/wirerod
 	materials = list(MAT_METAL=1000)
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 
+/*obj/item/weapon/wirerod/make_spear_prod(user, src, I, new_spear_prod)
+	if(!remove_item_from_storage(user))
+		user.unEquip(src)
+	user.unEquip(I)
+	user.put_in_hands(new_spear_prod)
+	to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>")
+	qdel(I)
+	qdel(src)
+*/
+//FIX THIS AT SOME POINT I'm BAD
 obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob, params)
 	..()
-	if(istype(I, /obj/item/weapon/shard) || istype(I, /obj/item/weapon/kitchen/knife))
+	if(istype(I, /obj/item/weapon/shard))
 		var/obj/item/weapon/twohanded/spear/S = new /obj/item/weapon/twohanded/spear
-
 		if(!remove_item_from_storage(user))
 			user.unEquip(src)
 		user.unEquip(I)
-
 		user.put_in_hands(S)
-		to_chat(user, "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>")
+		to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>")
+		qdel(I)
+		qdel(src)
+
+	else if(istype(I, /obj/item/weapon/kitchen/knife))
+		var/obj/item/weapon/twohanded/spear/S = new /obj/item/weapon/twohanded/spear/knife
+		if(!remove_item_from_storage(user))
+			user.unEquip(src)
+		user.unEquip(I)
+		user.put_in_hands(S)
+		to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>")
 		qdel(I)
 		qdel(src)
 
 	else if(istype(I, /obj/item/weapon/wirecutters))
 		var/obj/item/weapon/melee/baton/cattleprod/P = new /obj/item/weapon/melee/baton/cattleprod
-
 		if(!remove_item_from_storage(user))
 			user.unEquip(src)
 		user.unEquip(I)
-
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>")
+		to_chat(user, "<span class='notice'>You fasten \the [I] to the top of the rod with the cable.</span>")
 		qdel(I)
 		qdel(src)
 
