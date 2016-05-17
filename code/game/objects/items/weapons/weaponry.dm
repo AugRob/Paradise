@@ -183,7 +183,7 @@ obj/item/weapon/wirerod
 
 obj/item/weapon/wirerod/attackby(var/obj/item/I, mob/user as mob, params)
 	..()
-	if(istype(I, /obj/item/weapon/shard))
+	if(istype(I, /obj/item/weapon/shard) || istype(I, /obj/item/weapon/kitchen/knife))
 		var/obj/item/weapon/twohanded/spear/S = new /obj/item/weapon/twohanded/spear
 
 		if(!remove_item_from_storage(user))
