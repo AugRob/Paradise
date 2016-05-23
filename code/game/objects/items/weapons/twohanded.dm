@@ -296,10 +296,10 @@
 	
 /obj/item/weapon/twohanded/spear/knife
 	icon_state = "spearknife0"
-	force = 20
-	force_unwielded = 20
-	force_wielded = 28
-	throwforce = 30
+	force = 30
+	force_unwielded = 30
+	force_wielded = 35
+	throwforce = 33
 	
 /obj/item/weapon/twohanded/spear/knife/update_icon()
 	icon_state = "spearknife[wielded]"
